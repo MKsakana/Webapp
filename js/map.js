@@ -1,7 +1,7 @@
  // 地図を作るよ
 const map = L.map('map', {
   center: [36.3708, 140.4760],
-  zoom: 14,
+  zoom: 17,
   minZoom: 13,  // 修正
   maxZoom: 18,
   maxBounds: [
@@ -33,33 +33,11 @@ marker.on('click', function() {
 
 // GeoJSON読み込み
 fetch('geo_test.geojson')
-  .then(response => response.json())
+  .then(res => res.json())
   .then(data => {
-    L.geoJSON(data, {
-      onEachFeature: function(feature, layer) {
-        const props = feature.properties;
-        
-        layer.bindPopup(`
-          <h4>${props.名前}</h4>
-          <p>駐車台数: ${props.台数}</p>
-          <p>初心者おすすめ: ${props.初心者おすすめ}</p>
-        `);
-        
-        layer.on('click', function() {
-          document.getElementById('parkingModalLabel').textContent = props.名前;
-          document.querySelector('#parkingModal .modal-body').innerHTML = `
-            <p><strong>駐車台数:</strong> ${props.台数}</p>
-            <p><strong>初心者おすすめ:</strong> ${props.初心者おすすめ}</p>
-          `;
-          $('#parkingModal').modal('show');
-        });
-      }
-    }).addTo(map);
-  })
-  .catch(error => {
-    console.error('GeoJSON読み込みエラー:', error);
-    alert('駐車場データの読み込みに失敗しました');
+    L.geoJSON(data).addTo(map);
   });
+
 
 // マーカークリックでモーダルを開く
 marker.on('click', function() {
