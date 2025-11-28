@@ -26,13 +26,8 @@ var marker = L.marker([36.3708, 140.4760]).addTo(map);
 marker.bindPopup('水戸駅');
 marker.on('click', function() {
   document.getElementById('parkingModalLabel').textContent = "水戸駅";
-  document.querySelector('#parkingModal .modal-body').innerHTML = `
-    <p>水戸駅の情報</p>
-  `;
   $('#parkingModal').modal('show');
 });
-
-
 
 // マーカークリックでモーダルを開く
 marker.on('click', function() {
@@ -46,19 +41,19 @@ marker.on('click', function() {
   $('#parkingModal').modal('show');
 });
 
-// GeoJSON読み込み
+// GeoJSONファイルを読み込む（GeoJSONファイルはindex.htmlと同じ階層にあります）
 fetch('geo_test.geojson')
   .then(res => res.json())
   .then(data => {
      L.geoJSON(data, {
       onEachFeature: function(feature, layer) {
         const props = feature.properties;
-		    // 1. ポップアップだけ設置
+		  
+		    // 1. ポップアップを設置
         layer.bindPopup(`
           <div class="popup-content">
             <h4>${props.名前}</h4>
-            <p>駐車台数: ${props.台数}</p>
-            <p>初心者おすすめ: ${props.初心者おす}</p>
+           <p>初心者おすすめ: ${props.初心者おす}</p>
           </div>
         `);
 		  
@@ -69,6 +64,7 @@ fetch('geo_test.geojson')
 
           popupEl.addEventListener('click', function() {
             document.getElementById('parkingModalLabel').textContent = props.名前;
+			 //以下にモーダルの内容。表からデータを取得。
             document.querySelector('#parkingModal .modal-body').innerHTML = `
               <p><strong>駐車台数:</strong> ${props.台数}</p>
               <p><strong>初心者おすすめ:</strong> ${props.初心者おす}</p>
