@@ -69,6 +69,7 @@ fetch('geo_test.geojson')
             document.querySelector('#parkingModal .modal-body').innerHTML = `
               <p><strong>駐車台数:</strong> ${props.台数}</p>
               <p><strong>初心者おすすめ:</strong> ${props.初心者おす}</p>
+			 <p>Memo:<br> ${props.備考}</p>
             `;
             $('#parkingModal').modal('show');
           });
