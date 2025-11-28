@@ -21,7 +21,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   ]
 }).addTo(map);
 
-// 水戸駅マーカー
+// 水戸駅マーカー(サンプル用)
 var marker = L.marker([36.3708, 140.4760]).addTo(map);
 marker.bindPopup('水戸駅');
 marker.on('click', function() {
@@ -53,20 +53,29 @@ fetch('geo_test.geojson')
      L.geoJSON(data, {
       onEachFeature: function(feature, layer) {
         const props = feature.properties;
-layer.bindPopup(`
-          <h4>${props.名前}</h4>
-          <p>駐車台数: ${props.台数}</p>
-          <p>初心者おすすめ: ${props.初心者おすすめ}</p>
+		    // 1. ポップアップだけ設置
+        layer.bindPopup(`
+          <div class="popup-content">
+            <h4>${props.名前}</h4>
+            <p>駐車台数: ${props.台数}</p>
+            <p>初心者おすすめ: ${props.初心者おす}</p>
+          </div>
         `);
-        
-        layer.on('click', function() {
-          document.getElementById('parkingModalLabel').textContent = props.名前;
-          document.querySelector('#parkingModal .modal-body').innerHTML = `
-            <p><strong>駐車台数:</strong> ${props.台数}</p>
-            <p><strong>初心者おすすめ:</strong> ${props.初心者おすすめ}</p>
-          `;
-          $('#parkingModal').modal('show');
+		  
+
+        // 2. ポップアップが開いた瞬間に、クリック→モーダルの処理を追加
+        layer.on('popupopen', function(e) {
+          const popupEl = e.popup._container;
+
+          popupEl.addEventListener('click', function() {
+            document.getElementById('parkingModalLabel').textContent = props.名前;
+            document.querySelector('#parkingModal .modal-body').innerHTML = `
+              <p><strong>駐車台数:</strong> ${props.台数}</p>
+              <p><strong>初心者おすすめ:</strong> ${props.初心者おす}</p>
+            `;
+            $('#parkingModal').modal('show');
+          });
         });
       }
     }).addTo(map);
-  })
+  });
