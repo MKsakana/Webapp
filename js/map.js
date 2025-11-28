@@ -2,7 +2,7 @@
 const map = L.map('map', {
   center: [36.3708, 140.4760],
   zoom: 17,
-  minZoom: 13,  // 修正
+  minZoom: 14,  // 修正
   maxZoom: 18,
   maxBounds: [
     [36.34, 140.45],
@@ -11,7 +11,8 @@ const map = L.map('map', {
   maxBoundsViscosity: 0
 });
 
-// OpenStreetMapのタイルを読み込み
+// OpenStreetMapのタイルを読み込み。
+// nowrap以降で地図範囲を設定。
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   noWrap: true,
   bounds: [
@@ -31,12 +32,6 @@ marker.on('click', function() {
   $('#parkingModal').modal('show');
 });
 
-// GeoJSON読み込み
-fetch('geo_test.geojson')
-  .then(res => res.json())
-  .then(data => {
-    L.geoJSON(data).addTo(map);
-  });
 
 
 // マーカークリックでモーダルを開く
@@ -44,9 +39,16 @@ marker.on('click', function() {
   document.getElementById('parkingModalLabel').textContent = "テスト駐車場";
   document.querySelector('#parkingModal .modal-body').innerHTML = `
     <p>この辺に詳細</p>
-<p>ここに駐車場情報を表示します。ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
+<p>ここに駐車場情報を表示します。</p>
   `;
   
   // Bootstrapのモーダルを開く
   $('#parkingModal').modal('show');
 });
+
+// GeoJSON読み込み
+fetch('geo_test.geojson')
+  .then(res => res.json())
+  .then(data => {
+    L.geoJSON(data).addTo(map);
+  });
