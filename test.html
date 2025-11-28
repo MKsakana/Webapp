@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>テスト</title>
+<style>
+#option-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+.filter-btn {
+  display: none;
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  z-index: 999;
+  margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+
+<button id="option-btn">⚙</button>
+<button class="filter-btn">A</button>
+<button class="filter-btn">B</button>
+<button class="filter-btn">C</button>
+
+<script>
+let filtersVisible = false;
+document.getElementById('option-btn').addEventListener('click', () => {
+  const filters = document.querySelectorAll('.filter-btn');
+  filtersVisible = !filtersVisible;
+  filters.forEach(btn => {
+    if (filtersVisible) {
+      btn.style.display = 'block';
+      btn.disabled = false;
+    } else {
+      btn.style.display = 'none';
+      btn.disabled = true;
+    }
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <!--下の2行でPWA対応サイト化 -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <title>サイトテスト</title>
+
+ <!-- Bootstrap　読み込み -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
+<!--google fonts 読み込み-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+	</head>
+<body>
+	<!--ナビゲーションバー部分-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+       <a class="navbar-brand" href="index.html">
+		   タイトル</a>
+		<!--ハンバーガーメニュー-->
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+      </button>
+		<!--メニューの中身-->
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item">
+               <a class="nav-link" href="index.html">MAP <span class="sr-only">(current)</span></a>
+             </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="credit.html">ツールについて</a>
+		    </li>
+   
+          </ul>
+       </div>
+		<!--メニューここまで-->
+</nav>
+<!--ナビゲーションバーここまで-->
+	<div class="bg-primary">
+<!--クレジット本文-->
+		<div class="text-center m-plus-rounded-1c-bold">
+			<h2>このサイトについて</h2>
+		  <p class="zen-maru-gothic-regular"> このへんにサイトの使い方とか<br>
+			  制作過程とか<br>
+			  良い感じの画像とか載せていくといいかも<br><br>
+
+			  メニューボタンの見た目は<br>
+			  画像指定になってたので差し替えれば変更できそう！
+		  </p>
+			
+<h2>サイト編集にあたって</h2>
+			<p class="zen-maru-gothic-regular">
+		    Bootstrapを導入！<br>
+			スタイルはbootstrap.cssが基本、<br>
+			変更したい部分のみcustom.cssに記述して上書き。<br><br>
+			jsは主にmap.jsに記述。
+			</p>
+		</div>
+	
+<!--フッターここから-->
+	</div>
+		<div class="bg-dark text-right footer">
+	<p style="font-size:12px">©こぴーらいと書くところ</p>
+			
+	</div>
+<!--フッターここまで-->
+
+	 <!-- jQuery読み込み (Bootstrapに必須のライブラリ) --> 
+		<script src="js/jquery-3.4.1.min.js"></script>
+
+	 <!-- Include all compiled plugins (below), or include individual files as needed --> 
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap-4.4.1.js"></script>
+
+</body>
+</html>

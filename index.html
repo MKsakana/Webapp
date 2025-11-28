@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--下の2行でPWA対応サイト化 -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <title>サイトテスト</title>
+
+ <!-- Bootstrap　読み込み -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
+<!--google fonts 読み込み-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+
+<!--地図スタイル（leaflet）の読み込み-->
+ <link rel="stylesheet" href="leaflet/leaflet.css">
+	  
+ </head>
+	
+ <body>
+	  
+	 <nav class="header">
+	   <a>タイトル</a>
+	 </nav>
+
+<!--地図-->
+      <div id="map"></div>
+<!-- オプションボタン -->
+	<button id="option-btn">⚙</button>
+
+<!-- 現在地ボタン -->
+	<button id="locate-btn">📍</button>
+
+	<!-- 絞り込みボタンたち -->
+	<button class="filter-btn" id="filter-beginner">初心者向け</button>
+	<button class="filter-btn" id="filter-nearby">近く</button>
+	<button class="filter-btn" id="filter-cheap">格安</button>
+	<!--地図ここまで-->	  
+
+	  <!-- モーダル本体 -->
+	<div class="modal fade" id="parkingModal" tabindex="-1" role="dialog" aria-labelledby="parkingModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      
+      <!-- モーダルヘッダー -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="parkingModalLabel">駐車場の詳細</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <!-- 本文 -->
+      <div class="modal-body">
+        <p>ここに駐車場情報を表示します。ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+	  
+<!--この先各種スクリプトの読み込み-->
+	  
+
+<!-- jQuery, Bootstrapなど -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-4.4.1.js"></script>
+
+<!-- Leafletを最後に -->
+<script src="leaflet/leaflet-src.js"></script>
+<script src="js/map.js"></script>
+<script src="js/button.js"></script>
+
+
+  </body>
+</html>
