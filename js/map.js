@@ -53,7 +53,8 @@ fetch('geo_test.geojson')
         layer.bindPopup(`
           <div class="popup-content">
             <h4>${props.名前}</h4>
-           <p>初心者おすすめ: ${props.初心者おす}</p>
+           <p>初心者おすすめ: ${props.初心者おす ? props.初心者おす[0] : ""}</p>
+
           </div>
         `);
 		  
