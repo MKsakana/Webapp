@@ -50,5 +50,23 @@ marker.on('click', function() {
 fetch('geo_test.geojson')
   .then(res => res.json())
   .then(data => {
-    L.geoJSON(data).addTo(map);
-  });
+     L.geoJSON(data, {
+      onEachFeature: function(feature, layer) {
+        const props = feature.properties;
+layer.bindPopup(`
+          <h4>${props.名前}</h4>
+          <p>駐車台数: ${props.台数}</p>
+          <p>初心者おすすめ: ${props.初心者おすすめ}</p>
+        `);
+        
+        layer.on('click', function() {
+          document.getElementById('parkingModalLabel').textContent = props.名前;
+          document.querySelector('#parkingModal .modal-body').innerHTML = `
+            <p><strong>駐車台数:</strong> ${props.台数}</p>
+            <p><strong>初心者おすすめ:</strong> ${props.初心者おすすめ}</p>
+          `;
+          $('#parkingModal').modal('show');
+        });
+      }
+    }).addTo(map);
+  })
