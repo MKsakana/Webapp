@@ -1,0 +1,132 @@
+ html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+	 
+      }
+      #map {
+        height: 90%;
+        width: 100%;
+      }
+/*フォント設定*/
+.m-plus-rounded-1c-bold {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.zen-maru-gothic-regular {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body{
+	font-family: "M PLUS Rounded 1c";
+	font-weight: 700;
+  font-style: normal;
+}
+
+/*body内設定各種*/
+.bg-primary{
+	height:  90%;
+	color: #ffffff;
+}
+.bg-dark{
+	color:aliceblue;
+
+}
+.footer{
+	height: 10%;
+	font-size:10px
+}
+h2{
+	padding: 10px;
+	padding-top:30px;
+}
+p{
+	padding: 5px;
+	font-size:20px
+}
+.footerp{
+	font-size:10px
+}
+
+/* オプションボタン */
+#option-btn {
+  position: fixed;
+  bottom: 100px !important;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  background: #3b3b3b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+z-index: 1100;
+	border-style: solid;
+	border-width:2px;
+}
+	#option-btn:hover {
+  background-color: #f0f0f0;
+  color:black;
+}
+
+
+/* 絞り込みボタン */
+.filter-btn {
+  position: fixed;
+  right: 30px;
+  display: none; /* 最初は非表示 */
+  border: none;
+  border-radius: 20%;
+  padding: 8px 12px;
+  background: white;
+  cursor: pointer;
+z-index: 1100;
+	border-style: solid;
+	border-width:2px;
+}
+
+/* ボタンの縦配置をずらす */
+#filter-beginner { bottom: 160px; }
+#filter-nearby { bottom: 210px; }
+#filter-cheap { bottom: 260px; }
+
+
+
+/* iPhoneのセーフエリア対応（ホームバー分） */
+@supports(padding: env(safe-area-inset-bottom)) {
+  #option-btn {
+    bottom: calc(60px + env(safe-area-inset-bottom));
+  }
+}
+
+/* ホバー/フォーカスの調整 */
+#option-btn:hover { background:#3b3b3b; }
+#option-btn:active { transform: translateY(1px); }
+#option-btn:focus { outline: 2px solid rgba(255,255,255,0.2); }
+
+
+#locate-btn {
+ position: fixed;
+  bottom:40px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  background: #3b3b3b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.2s ease;
+  z-index: 1100;
+  border-style: solid;
+  border-width:2px;
+}
+
+#locate-btn:hover {
+  background-color: #f0f0f0;
+}
